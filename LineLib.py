@@ -60,7 +60,7 @@ class LineLib(object):
 	def sendImage(self, recv, url):
 		recv.sendImageWithUrl(url)
 
-	def getRecentMessages(self, count):
+	def getRecentMessages(self, recv, count):
 		return recv.getRecentMessages(count)
 
 	def acceptAll(self):
