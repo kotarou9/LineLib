@@ -80,7 +80,9 @@ class Command(object):
 		self.name = command
 		self.desc = desc
 		self.func = func
-	
+
+	def __repr__(self):
+		return "<command class name=%s>" % self.name
 
 if __name__=="__main__":
 	bot = TestBot()
