@@ -61,7 +61,7 @@ class LineLib(object):
 		recv.sendImageWithUrl(url)
 
 	def getRecentMessages(self, count):
-		recv.getRecentMessages(count)
+		return recv.getRecentMessages(count)
 
 	def acceptAll(self):
 		for grp in self.getGroups():
