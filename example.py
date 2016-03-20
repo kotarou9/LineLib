@@ -23,7 +23,6 @@ class TestBot(LineLib):
 	def getCommand(self, cmd):
 		# gets the command
 		cmd = cmd.replace(self.prefix, '')
-		print cmd
 		for command in self._commands:
 			if command.name.lower() == cmd.lower():
 				return command
