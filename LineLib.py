@@ -70,7 +70,7 @@ class LineLib(object):
 			except:
 				pass
 	def main(self):
-		task = self.setInterval(self.autoAcceptInviteTimer, self.acceptall)
+		task = self.setInterval(self.autoAcceptInviteTimer, self.acceptAll)
 		while True:
 			task.do_all_tasks() # we use the loop to our avantage :)
 			ops = []
