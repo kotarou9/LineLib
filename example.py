@@ -60,7 +60,7 @@ class TestBot(LineLib):
 
 	def onMessage(self, recv, user, msg):
 		# onMessage basically takes the server responses
-		print user.name, msg.text
+		print(user.name, msg.text)
 		data = msg.text.split(" ", 1)
 		if len(data) ==1:
 			cmd, args = data[0], ""
