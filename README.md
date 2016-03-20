@@ -1,2 +1,5 @@
-# LineLib
-A lib for line based on the line lib by Taehoon Kim / @carpedm20
+sudo pip install line
+
+see example.py on how to use
+
+I will add a full documentation when I have the time
