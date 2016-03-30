@@ -10,6 +10,7 @@ class LineLib(object):
 		self.timeStarted = None
 		self.sleep = 0.2
 		self.autoAcceptInviteTimer = 20
+		self._tasks = {}
 		self.Login()
 
 	def setInterval(self, interval, func, *args, **kw):
@@ -38,6 +39,28 @@ class LineLib(object):
 		task = _Task(interval, func, *args, **kw)
 		task.timeout()
 		return task
+		
+	def setIntervalByName(self, name, interval, func, *args, **kw):
+		if name in self._tasks.keys(): 
+			return False
+		else:
+			self._tasks[name] = self.setInterval(interval, func, *args, **kw)
+			return True
+	
+	def setTimeoutByName(self, name, interval, func, *args, **kw):
+		if name in self._tasks.keys():
+			return False
+		else:
+			self._tasks[name] = self.setTimeout(interval, func, *args, **kw)
+			return True
+
+	def getTaskByName(self, name):
+		"""
+		@name: name of task
+		returns the task set by a name
+		"""
+		if name in self._tasks.keys(): 
+			return self._tasks[name]
 
 	def Login(self):
 		try:
@@ -70,7 +93,7 @@ class LineLib(object):
 			except:
 				pass
 	def main(self):
-		task = self.setInterval(self.autoAcceptInviteTimer, self.acceptAll)
+		self.setIntervalByName("acceptAll", self.autoAcceptInviteTimer, self.acceptAll)
 		while True:
 			task.do_all_tasks() # we use the loop to our avantage :)
 			ops = []
